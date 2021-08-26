@@ -1,5 +1,6 @@
 import React from "react";
 
+//food component는 name, picture를 요구한다.
 function Food({ name, picture }){  
   return (
     <div>
@@ -38,14 +39,18 @@ const foodILike = [
 ];
 
 
+function renderFood(dish) {
+  console.log();
+  return <Food name={dish.name} picture={dish.image}/>
+ }
 function App() {
-  return (
-     <div>    
-        {foodILike.map(dish => (
-           <Food name={dish.name} picture={dish.image} />
-           ))}
+  return(
+    <div>
+      {foodILike.map(dish => (
+        <Food key={dish.id} name={dish.name} picture={dish.image}/>
+      ))}
     </div>
-  );     
+  );
 }
 
 export default App;
